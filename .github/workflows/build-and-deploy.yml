@@ -1,0 +1,51 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [ source ]
+  pull_request:
+    branches: [ source ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-haskell@v1
+      with:
+        ghc-version: '8.8.3'
+        cabal-version: '3.0'
+    - name: Cache ~/.cabal
+      uses: actions/cache@v1
+      with:
+        path: ~/.cabal
+        key: ${{ runner.os }}-cabal
+    - name: Cache local cabal build files
+      uses: actions/cache@v1
+      with:
+        path: dist-newstyle
+        key: ${{ runner.os }}-dist-newstyle
+    - name: Hakyll cache
+      uses: actions/cache@v1
+      with:
+        path: _cache
+        key: ${{ runner.os }}-hakyll-_cache
+    - name: Install dependencies
+      run: |
+        cabal update
+        cabal install --only-dependencies
+    - name: Build generator
+      run: |
+        cabal build site
+    - name: Generate static site
+      run: cabal run site build
+    - name: Deploy to GH pages
+      uses: crazy-max/ghaction-github-pages@v1
+      with:
+        target_branch: master
+        commit_message: Deploy ${{ github.sha }}
+        build_dir: _site
+      env:
+        GITHUB_PAT: ${{ secrets.PAT }}
