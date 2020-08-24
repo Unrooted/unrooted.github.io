@@ -8,3 +8,6 @@ Interested in: **#functional-programming**, **#haskell**, **#scala**, but also *
 Keen on: **#aviation**.
 
 Based in [**Gdańsk**](https://www.google.com/maps/place/Gda%C5%84sk).
+
+
+My Public PGP key can be found [here](https://gist.github.com/Unrooted/6b8704eb037fab2eaf942db9b790d0c3).
