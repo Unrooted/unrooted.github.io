@@ -9,5 +9,5 @@ If you want something, feel free to contact me in: Polish, English, German or in
 - Stack Exchange: [konrad-unrooted-klawikowski](https://stackexchange.com/users/19184894/konrad-unrooted-klawikowski)
 - Reddit: [/u/kunrooted](https://reddit.com/u/kunrooted)
 - Twitter: [kunrooted](https://twitter.com/kunrooted)
+- Matrix: [unrooted:matrix.org](https://matrix.to/#/@unrooted:matrix.org)
 - IRC freenode: unrooted
-- Matrix: [@unrooted:matrix.org](@unrooted:matrix.org)
